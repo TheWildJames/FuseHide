@@ -42,7 +42,7 @@ fun defaultGlobalConfigDrafts(): GlobalConfigDrafts = globalConfigDrafts(HideCon
 fun appSpecificTargetsText(config: HideConfig, packageName: String): String {
     val specificRule = config.packageRules.find { it.packageName == packageName } ?: return ""
     val rootEntries = specificRule.hiddenRootEntryNames
-    val relativePaths = specificRule.hiddenRelativePaths.map { "|$it" }
+    val relativePaths = specificRule.hiddenRelativePaths
     return HideConfigDefaults.toEditorText(rootEntries + relativePaths)
 }
 
